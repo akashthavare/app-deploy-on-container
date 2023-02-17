@@ -23,19 +23,7 @@ pipeline {
                 sh 'docker build -t  akashthavare18/docker_jenkins_springboot:${BUILD_NUMBER} .'
             }
         }
-        stage('Docker Login'){
-            
-            steps {
-                 withCredentials([string(credentialsId: 'DockerId', variable: 'Dockerpwd')]) {
-                    sh "docker login -u akashthavare18 -p ${Dockerpwd}"
-                }
-            }                
-        }
-        stage('Docker Push'){
-            steps {
-                sh 'docker push akashthavare18/docker_jenkins_springboot:${BUILD_NUMBER}'
-            }
-        }
+        s
         stage('Docker deploy'){
             steps {
                
