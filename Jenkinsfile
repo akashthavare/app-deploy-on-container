@@ -23,7 +23,7 @@ pipeline {
                 sh 'docker build -t  akashthavare18/docker_jenkins_springboot:${BUILD_NUMBER} .'
             }
         }
-        s
+        
         stage('Docker deploy'){
             steps {
                
