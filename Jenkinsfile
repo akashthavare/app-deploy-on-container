@@ -18,14 +18,14 @@ pipeline {
             steps {
                 echo "Hello Java Express"
                 sh 'ls'
-                sh 'docker build -t  akashthavare18/docker_jenkins_springboot:${BUILD_NUMBER} .'
+                sh 'docker build -t  akashthavare18/deploy-container:${BUILD_NUMBER} .'
             }
         }
         
         stage('Docker deploy'){
             steps {
                
-                sh 'docker run -itd -p  8081:8080 akashthavare18/docker_jenkins_springboot:${BUILD_NUMBER}'
+                sh 'docker run -itd -p  8081:8080 akashthavare18/deploy-container:${BUILD_NUMBER}'
             }
         }
         stage('Archving') { 
