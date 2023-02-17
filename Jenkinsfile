@@ -16,8 +16,7 @@ pipeline {
         stage('Build Docker image'){
           
             steps {
-                echo "Hello Java Express"
-                sh 'ls'
+                
                 sh 'docker build -t  akashthavare18/deploy-container:${BUILD_NUMBER} .'
             }
         }
