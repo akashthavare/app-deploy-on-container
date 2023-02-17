@@ -1,7 +1,7 @@
 pipeline {
     agent any 
     tools {
-        maven "3.8.5"
+        maven "3.0.5"
     
     }
     stages {
@@ -30,19 +30,19 @@ pipeline {
             
             steps {
                  withCredentials([string(credentialsId: 'DockerId', variable: 'Dockerpwd')]) {
-                    sh "docker login -u anvbhaskar -p ${Dockerpwd}"
+                    sh "docker login -u akashthavare18 -p ${Dockerpwd}"
                 }
             }                
         }
         stage('Docker Push'){
             steps {
-                sh 'docker push anvbhaskar/docker_jenkins_springboot:${BUILD_NUMBER}'
+                sh 'docker push akashthavare18/docker_jenkins_springboot:${BUILD_NUMBER}'
             }
         }
         stage('Docker deploy'){
             steps {
                
-                sh 'docker run -itd -p  8081:8080 anvbhaskar/docker_jenkins_springboot:${BUILD_NUMBER}'
+                sh 'docker run -itd -p  8081:8080 akashthavare18/docker_jenkins_springboot:${BUILD_NUMBER}'
             }
         }
         stage('Archving') { 
