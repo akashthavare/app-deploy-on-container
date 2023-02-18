@@ -11,6 +11,6 @@ public class DockerHelloWorld {
 	@GetMapping
 	public String getName() {
 		
-		return "Hi this is demonstration deployement, compeleted successfully.";
+		return "Hi this is demonstration deployement, compeleted successfully..";
 	}
 }
