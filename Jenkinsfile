@@ -2,9 +2,9 @@ pipeline {
     agent any 
     
     stages {
-        stage('Compile and Clean') { 
+        stage(' Clean') { 
             steps {
-               sh "mvn clean compile"
+               sh "mvn clean"
             }
         }
         stage('deploy') { 
@@ -17,14 +17,14 @@ pipeline {
           
             steps {
                 
-                sh 'docker build -t  akashthavare18/deploy-container:${BUILD_NUMBER} .'
+                sh 'docker build -t  akashthavare/deploy-container:${BUILD_NUMBER} .'
             }
         }
         
         stage('Docker deploy'){
             steps {
                
-                sh 'docker run -itd -p  8082:8080 akashthavare18/deploy-container:${BUILD_NUMBER}'
+                sh 'docker run -itd -p  8082:8080 akashthavare/deploy-container:${BUILD_NUMBER}'
             }
         }
         stage('Archving') { 
