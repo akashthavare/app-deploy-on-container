@@ -13,6 +13,11 @@ pipeline {
                 sh "mvn package"
             }
         }
+        stage ('docker-system-prune'){
+            steps {
+                sh"docker system prune -a -f"
+            }
+        }
         stage('Build Docker image'){
           
             steps {
