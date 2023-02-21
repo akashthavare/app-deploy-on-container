@@ -2,9 +2,9 @@ pipeline {
     agent any 
     
     stages {
-        stage(' Clean') { 
+        stage('Clean') { 
             steps {
-               sh "mvn clean"
+               sh 'mvn clean'
             }
         }
         stage('deploy') { 
