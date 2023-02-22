@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clean') { 
             steps {
-               sh "mvn clean"
+               sh "mvn clean compile"
             }
         }
         stage('deploy') { 
@@ -22,7 +22,7 @@ pipeline {
           
             steps {
                 
-                sh 'docker build -t  akashthavare/deploy-container:${BUILD_NUMBER} .'
+                sh "docker build -t  akashthavare/deploy-container:${BUILD_NUMBER} ."
             }
         }
         
