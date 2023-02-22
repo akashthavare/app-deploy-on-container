@@ -22,7 +22,7 @@ pipeline {
           
             steps {
                 
-                sh 'docker build -t  akashthavare/deploy-container:${BUILD_NUMBER} .'
+                sh "docker build -t  akashthavare/deploy-container:${BUILD_NUMBER} ."
             }
         }
         
